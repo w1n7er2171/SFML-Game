@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "Game.h"
 
 
@@ -40,6 +42,22 @@ const bool Game::running() const
 	return this->window->isOpen();
 }
 
+//Functions
+
+void Game::textureLoad()
+{
+	sf::Texture texture;
+	if (!texture.loadFromFile("res/Spaceship.png"))
+	{
+		std::cout << "Texture Spaceship.png failed to load";
+	}
+
+	sf::Sprite sprite;
+	sprite.setTexture(texture);
+
+	this->window->draw(sprite);
+}
+
 void Game::pollEvents()
 {
 	//Event polling
@@ -58,7 +76,6 @@ void Game::pollEvents()
 	}
 }
 
-//Functions
 void Game::update()
 {
 	this->pollEvents();

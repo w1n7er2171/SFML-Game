@@ -32,6 +32,7 @@ public:
 	const bool running() const;
 
 	//Functions
+	void textureLoad();
 	void pollEvents();
 	void update();
 	void render();

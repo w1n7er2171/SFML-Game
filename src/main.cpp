@@ -13,6 +13,9 @@ int main()
 	while (game.running())
 	{
 
+		//Load texture
+		game.textureLoad();
+
 		//Update
 		game.update();
 
