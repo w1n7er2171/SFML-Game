@@ -18,6 +18,9 @@ private:
 	sf::VideoMode videoMode;
 	sf::Event ev;
 
+	sf::Clock deltaTimeClock;
+	float deltaTime;
+
 	//Private func
 	void initVar();
 	void initWindow();
@@ -32,6 +35,7 @@ public:
 	const bool running() const;
 
 	//Functions
+	void updateDeltaTime();
 	void textureLoad();
 	void pollEvents();
 	void update();

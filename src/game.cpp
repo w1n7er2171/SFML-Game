@@ -44,9 +44,18 @@ const bool Game::running() const
 
 //Functions
 
+void Game::updateDeltaTime()
+{
+
+	this->deltaTime = this->deltaTimeClock.restart().asSeconds();
+	std::cout << deltaTime << std::endl;
+
+}
+
 void Game::textureLoad()
 {
 	sf::Texture texture;
+	texture.loadFromFile("res/Spaceship.png");
 	if (!texture.loadFromFile("res/Spaceship.png"))
 	{
 		std::cout << "Texture Spaceship.png failed to load";
@@ -86,9 +95,9 @@ void Game::update()
 void Game::render()
 {
 
-	this->window->clear();
+	this->window->clear(sf::Color(0,0,255,255));
 
-	//Draw new frame
+	this->textureLoad(); //Draw new frame
 
 	this->window->display();
 

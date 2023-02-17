@@ -13,8 +13,7 @@ int main()
 	while (game.running())
 	{
 
-		//Load texture
-		game.textureLoad();
+		game.updateDeltaTime();
 
 		//Update
 		game.update();
