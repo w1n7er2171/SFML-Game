@@ -1,5 +1,4 @@
 ﻿  entity.cpp
-  game.cpp
-  main.cpp
-  Создание кода...
+C:\Users\User\Documents\GitHub\SFML-Game\src\entity.cpp(55,138): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\Documents\GitHub\SFML-Game\src\entity.cpp(55,81): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
   SFML Game.vcxproj -> C:\Users\User\Documents\GitHub\SFML-Game\x64\Debug\SFML Game.exe

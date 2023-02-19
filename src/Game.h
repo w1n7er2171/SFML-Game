@@ -21,11 +21,9 @@ private:
 	sf::RenderWindow* window;
 	sf::VideoMode videoMode;
 	sf::Event ev;
-
 	sf::Clock deltaTimeClock;
 	float deltaTime;
 
-	Entity playerEntity;
 
 	//Private func
 	void initVar();
@@ -46,6 +44,8 @@ public:
 	void pollEvents();
 	void update();
 	void render();
+
+	Sprite& getSprite();
 
 };
 

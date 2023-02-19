@@ -47,7 +47,7 @@ void Game::updateDeltaTime()
 {
 
 	this->deltaTime = this->deltaTimeClock.restart().asSeconds();
-	std::cout << deltaTime << std::endl;
+	//std::cout << deltaTime << std::endl;
 
 }
 
@@ -61,6 +61,8 @@ void Game::textureLoad()
 
 	playerTexture.loadFromFile("res/Spaceship.png");
 	player.setTexture(playerTexture);
+
+	/*mainPlayer.SetSprite(player);*/
 }
 
 void Game::pollEvents()
@@ -76,8 +78,8 @@ void Game::pollEvents()
 		case sf::Event::KeyPressed:
 			if (this->ev.key.code == sf::Keyboard::Escape)
 				this->window->close();
-			//if (this->ev.key.code == sf::Keyboard::Left)
-			//	Entity::move();
+			//if (this->ev.key.code == sf::Keyboard::F)
+			//	this->window.set
 			break;
 		}
 	}
@@ -86,6 +88,7 @@ void Game::pollEvents()
 void Game::update()
 {
 	this->pollEvents();
+	/*mainPlayer.Move();*/
 	sf::Vector2f movement;
 
 }
@@ -100,4 +103,9 @@ void Game::render()
 
 	this->window->display();
 
+}
+
+Sprite& Game::getSprite()
+{
+	return this->player;
 }

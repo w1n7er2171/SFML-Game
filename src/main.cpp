@@ -7,7 +7,11 @@ int main()
 	//Init game engine
 	Game game;
 
+	Player player;
+
 	game.textureLoad();
+
+	player.SetSprite(game.getSprite());
 
 	//Game loop
 	while (game.running())
@@ -18,6 +22,7 @@ int main()
 		//Update
 		game.update();
 
+		player.Move();
 		//Render
 
 		game.render();

@@ -3,6 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Window.hpp"
+using namespace sf;
 
 #include "Game.h"
 
@@ -14,16 +15,29 @@ private:
 
 protected:
 
-	float movementSpeed;
+	float asteroidSpeed;
 
 public:
 	Entity();
 	virtual ~Entity();
 
 	//Functions
-	static void move(const float& deltaTime,const float x, const float y);
-
-	virtual void update(const float& deltaTime) = 0;
-	virtual void render(sf::RenderTarget& target) = 0;
+	
 };
 
+
+
+class Player
+{
+private:
+	Sprite* playerSprite;
+	float movementSpeed;
+public:
+	Player();
+	/*Player(Sprite& playerSprite, float movementSpeed);*/
+
+	void SetSpeed(float movementSpeed);
+	void SetSprite(Sprite& playerSprite);
+
+	void Move();
+};
