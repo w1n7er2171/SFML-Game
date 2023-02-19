@@ -7,7 +7,7 @@ int main()
 	//Init game engine
 	Game game;
 
-
+	game.textureLoad();
 
 	//Game loop
 	while (game.running())

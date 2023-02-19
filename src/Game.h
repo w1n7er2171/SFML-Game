@@ -8,18 +8,24 @@
 #include "SFML/Audio.hpp"
 #include "SFML/Network.hpp"
 
+#include "Entity.h"
+
 //Game engine
 
 class Game
 {
 private:
 
+	sf::Texture playerTexture;
+	sf::Sprite player;
 	sf::RenderWindow* window;
 	sf::VideoMode videoMode;
 	sf::Event ev;
 
 	sf::Clock deltaTimeClock;
 	float deltaTime;
+
+	Entity playerEntity;
 
 	//Private func
 	void initVar();

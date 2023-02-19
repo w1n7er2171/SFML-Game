@@ -1,8 +1,7 @@
 #include <iostream>
 
 #include "Game.h"
-
-
+#include "Entity.h"
 
 //Private func
 void Game::initVar()
@@ -54,17 +53,14 @@ void Game::updateDeltaTime()
 
 void Game::textureLoad()
 {
-	sf::Texture texture;
-	texture.loadFromFile("res/Spaceship.png");
-	if (!texture.loadFromFile("res/Spaceship.png"))
+	playerTexture.loadFromFile("res/Spaceship.png");
+	if (!playerTexture.loadFromFile("res/Spaceship.png"))
 	{
 		std::cout << "Texture Spaceship.png failed to load";
 	}
 
-	sf::Sprite sprite;
-	sprite.setTexture(texture);
-
-	this->window->draw(sprite);
+	playerTexture.loadFromFile("res/Spaceship.png");
+	player.setTexture(playerTexture);
 }
 
 void Game::pollEvents()
@@ -80,6 +76,8 @@ void Game::pollEvents()
 		case sf::Event::KeyPressed:
 			if (this->ev.key.code == sf::Keyboard::Escape)
 				this->window->close();
+			//if (this->ev.key.code == sf::Keyboard::Left)
+			//	Entity::move();
 			break;
 		}
 	}
@@ -88,16 +86,17 @@ void Game::pollEvents()
 void Game::update()
 {
 	this->pollEvents();
-	
+	sf::Vector2f movement;
 
 }
 
 void Game::render()
 {
 
-	this->window->clear(sf::Color(0,0,255,255));
-
-	this->textureLoad(); //Draw new frame
+	this->window->clear();
+	
+	//Draw new frame
+	window->draw(player);
 
 	this->window->display();
 
