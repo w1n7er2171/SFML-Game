@@ -8,14 +8,24 @@ int main()
 	Game game;
 
 	Player player;
+	Asteroid asteroid;
+	Bullet bullet;
 
 	game.textureLoad();
 
-	player.SetSprite(game.getSprite());
+	player.SetSprite(game.getPlayerSprite());
+	asteroid.SetAsteroidSprite(game.getAsteroidSprite());
+	
+
+	//Collision
+
+	
 
 	//Game loop
 	while (game.running())
 	{
+
+		bullet.Shoot();
 
 		game.updateDeltaTime();
 
@@ -23,8 +33,8 @@ int main()
 		game.update();
 
 		player.Move();
+		
 		//Render
-
 		game.render();
 
 	}

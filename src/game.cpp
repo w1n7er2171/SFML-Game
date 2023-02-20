@@ -17,6 +17,8 @@ void Game::initWindow()
 
 	this->window = new sf::RenderWindow(this->videoMode, "Game");
 
+	this->window->setFramerateLimit(120);
+
 }
 
 Game::Game()
@@ -54,19 +56,18 @@ void Game::updateDeltaTime()
 void Game::textureLoad()
 {
 	playerTexture.loadFromFile("res/Spaceship.png");
-	if (!playerTexture.loadFromFile("res/Spaceship.png"))
-	{
-		std::cout << "Texture Spaceship.png failed to load";
-	}
+	asteroidTexture.loadFromFile("res/Asteroid.png");
+	if (!playerTexture.loadFromFile("res/Spaceship.png")) {std::cout << "Texture Spaceship.png failed to load";}
+	if (!asteroidTexture.loadFromFile("res/Asteroid.png")) {std::cout << "Texture Asteroid.png failed to load";}
 
-	playerTexture.loadFromFile("res/Spaceship.png");
 	player.setTexture(playerTexture);
-
-	/*mainPlayer.SetSprite(player);*/
+	asteroid.setTexture(asteroidTexture);
 }
 
 void Game::pollEvents()
 {
+	bool fullScreenActive = false;
+
 	//Event polling
 	while (this->window->pollEvent(this->ev))
 	{
@@ -78,8 +79,6 @@ void Game::pollEvents()
 		case sf::Event::KeyPressed:
 			if (this->ev.key.code == sf::Keyboard::Escape)
 				this->window->close();
-			//if (this->ev.key.code == sf::Keyboard::F)
-			//	this->window.set
 			break;
 		}
 	}
@@ -88,7 +87,6 @@ void Game::pollEvents()
 void Game::update()
 {
 	this->pollEvents();
-	/*mainPlayer.Move();*/
 	sf::Vector2f movement;
 
 }
@@ -100,12 +98,18 @@ void Game::render()
 	
 	//Draw new frame
 	window->draw(player);
+	window->draw(asteroid);
 
 	this->window->display();
 
 }
 
-Sprite& Game::getSprite()
+Sprite& Game::getPlayerSprite()
 {
 	return this->player;
+}
+
+Sprite& Game::getAsteroidSprite()
+{
+	return this->asteroid;
 }

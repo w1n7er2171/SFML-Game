@@ -18,6 +18,10 @@ private:
 
 	sf::Texture playerTexture;
 	sf::Sprite player;
+
+	sf::Texture asteroidTexture;
+	sf::Sprite asteroid;
+	
 	sf::RenderWindow* window;
 	sf::VideoMode videoMode;
 	sf::Event ev;
@@ -45,7 +49,9 @@ public:
 	void update();
 	void render();
 
-	Sprite& getSprite();
+	Sprite& getPlayerSprite();
+
+	Sprite& getAsteroidSprite();
 
 };
 
